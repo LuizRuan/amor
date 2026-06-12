@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="Uma mensagem especial de amor de Ruan para Beatriz no Dia dos Namorados 💕" />
+  <title>Para Beatriz — Com todo meu amor 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== SPLASH SCREEN ========== -->
+  <div id="splash" class="splash">
+    <div class="splash-hearts">
+      <span class="sh">💕</span>
+      <span class="sh">🌹</span>
+      <span class="sh">💕</span>
+      <span class="sh">✨</span>
+      <span class="sh">💕</span>
+    </div>
+    <div class="splash-content">
+      <div class="splash-ring">💍</div>
+      <h1 class="splash-title">Para</h1>
+      <h1 class="splash-name">Beatriz</h1>
+      <p class="splash-sub">Com todo o meu amor</p>
+      <div class="splash-heart-pulse">❤️</div>
+      <button class="splash-btn" id="enterBtn" onclick="enterSite()">
+        <span>Abrir sua surpresa</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== MAIN SITE ========== -->
+  <div id="mainSite" class="main-site hidden">
+
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-img-wrap">
+        <img src="fotos/Casamento Beatriz e Ruan (388).jpg" alt="Beatriz e Ruan no casamento" class="hero-img" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">💕 Dia dos Namorados</div>
+        <h1 class="hero-title">Beatriz &amp; Ruan</h1>
+        <p class="hero-subtitle">Uma história de amor que é nossa</p>
+        <div class="hero-scroll-hint">
+          <span>↓</span>
+          <p>Role para ver sua surpresa</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MENSAGEM SECTION ===== -->
+    <section class="section message-section" id="mensagem">
+      <div class="section-deco">💌</div>
+      <h2 class="section-title">Minha mensagem para você</h2>
+      <div class="message-card">
+        <div class="message-quote">"</div>
+        <p class="message-text" id="typewriterText"></p>
+        <div class="message-sign">
+          <span>Com amor,</span>
+          <strong>Ruan 💕</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALERIA SECTION ===== -->
+    <section class="section gallery-section" id="galeria">
+      <div class="section-deco">📸</div>
+      <h2 class="section-title">Nossa história em fotos</h2>
+      <p class="section-subtitle">Momentos que guardarei para sempre no coração</p>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Fotos do casamento profissional -->
+        <div class="gallery-item featured" data-index="0">
+          <div class="gallery-img-wrap">
+            <img src="fotos/Casamento Beatriz e Ruan (388).jpg" alt="Nosso casamento" loading="lazy" />
+          </div>
+          <div class="gallery-label">💍 Nosso casamento</div>
+        </div>
+
+        <div class="gallery-item" data-index="1">
+          <div class="gallery-img-wrap">
+            <img src="fotos/Casamento Beatriz e Ruan (70).jpg" alt="Beatriz linda" loading="lazy" />
+          </div>
+          <div class="gallery-label">🌹 A noiva mais linda</div>
+        </div>
+
+        <div class="gallery-item" data-index="2">
+          <div class="gallery-img-wrap">
+            <img src="fotos/Casamento Beatriz e Ruan (127).jpg" alt="Beatriz e Ruan" loading="lazy" />
+          </div>
+          <div class="gallery-label">✨ Juntos para sempre</div>
+        </div>
+
+        <div class="gallery-item" data-index="3">
+          <div class="gallery-img-wrap">
+            <img src="fotos/Casamento Beatriz e Ruan (147).jpg" alt="Momento especial" loading="lazy" />
+          </div>
+          <div class="gallery-label">💕 Momento especial</div>
+        </div>
+
+        <div class="gallery-item" data-index="4">
+          <div class="gallery-img-wrap">
+            <img src="fotos/Casamento Beatriz e Ruan (148).jpg" alt="Nosso amor" loading="lazy" />
+          </div>
+          <div class="gallery-label">❤️ Nosso amor</div>
+        </div>
+
+        <div class="gallery-item" data-index="5">
+          <div class="gallery-img-wrap">
+            <img src="fotos/Casamento Beatriz e Ruan (508).jpg" alt="Felicidade" loading="lazy" />
+          </div>
+          <div class="gallery-label">🎊 Felicidade</div>
+        </div>
+
+        <!-- Fotos do WhatsApp (dia a dia) -->
+        <div class="gallery-item" data-index="6">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.19.jpeg" alt="Nós dois" loading="lazy" />
+          </div>
+          <div class="gallery-label">🥰 Nós dois</div>
+        </div>
+
+        <div class="gallery-item" data-index="7">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.18 (1).jpeg" alt="Momento fofo" loading="lazy" />
+          </div>
+          <div class="gallery-label">💖 Momento fofo</div>
+        </div>
+
+        <div class="gallery-item" data-index="8">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.18.jpeg" alt="Com você" loading="lazy" />
+          </div>
+          <div class="gallery-label">🌟 Com você</div>
+        </div>
+
+        <div class="gallery-item" data-index="9">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.19 (1).jpeg" alt="Sempre juntos" loading="lazy" />
+          </div>
+          <div class="gallery-label">💑 Sempre juntos</div>
+        </div>
+
+        <div class="gallery-item" data-index="10">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.20.jpeg" alt="Nossa vida" loading="lazy" />
+          </div>
+          <div class="gallery-label">🌹 Nossa vida</div>
+        </div>
+
+        <div class="gallery-item" data-index="11">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.20 (1).jpeg" alt="Sorrisos" loading="lazy" />
+          </div>
+          <div class="gallery-label">😊 Sorrisos</div>
+        </div>
+
+        <div class="gallery-item" data-index="12">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.21.jpeg" alt="Amor" loading="lazy" />
+          </div>
+          <div class="gallery-label">💕 Amor</div>
+        </div>
+
+        <div class="gallery-item" data-index="13">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.21 (1).jpeg" alt="Carinho" loading="lazy" />
+          </div>
+          <div class="gallery-label">🥰 Carinho</div>
+        </div>
+
+        <div class="gallery-item" data-index="14">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.21 (2).jpeg" alt="Cumplicidade" loading="lazy" />
+          </div>
+          <div class="gallery-label">✨ Cumplicidade</div>
+        </div>
+
+        <div class="gallery-item" data-index="15">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.21 (3).jpeg" alt="Felizes" loading="lazy" />
+          </div>
+          <div class="gallery-label">🎉 Felizes</div>
+        </div>
+
+        <div class="gallery-item" data-index="16">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.22.jpeg" alt="Nosso casal" loading="lazy" />
+          </div>
+          <div class="gallery-label">💞 Nosso casal</div>
+        </div>
+
+        <div class="gallery-item" data-index="17">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.22 (1).jpeg" alt="Memória" loading="lazy" />
+          </div>
+          <div class="gallery-label">📷 Memória</div>
+        </div>
+
+        <div class="gallery-item" data-index="18">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.22 (2).jpeg" alt="Juntos" loading="lazy" />
+          </div>
+          <div class="gallery-label">❤️ Juntos</div>
+        </div>
+
+        <div class="gallery-item" data-index="19">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.22 (3).jpeg" alt="Amor eterno" loading="lazy" />
+          </div>
+          <div class="gallery-label">♾️ Amor eterno</div>
+        </div>
+
+        <div class="gallery-item" data-index="20">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.23.jpeg" alt="Para sempre" loading="lazy" />
+          </div>
+          <div class="gallery-label">🌹 Para sempre</div>
+        </div>
+
+        <div class="gallery-item" data-index="21">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.23 (1).jpeg" alt="Vida a dois" loading="lazy" />
+          </div>
+          <div class="gallery-label">💑 Vida a dois</div>
+        </div>
+
+        <div class="gallery-item" data-index="22">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.24.jpeg" alt="Alegria" loading="lazy" />
+          </div>
+          <div class="gallery-label">😍 Alegria</div>
+        </div>
+
+        <div class="gallery-item" data-index="23">
+          <div class="gallery-img-wrap">
+            <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.25.jpeg" alt="Você é tudo" loading="lazy" />
+          </div>
+          <div class="gallery-label">💫 Você é tudo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RAZÕES SECTION ===== -->
+    <section class="section reasons-section" id="razoes">
+      <div class="section-deco">🌹</div>
+      <h2 class="section-title">Por que te amo</h2>
+      <p class="section-subtitle">Motivos que enchem meu coração todo dia</p>
+      <div class="reasons-list">
+        <div class="reason-card" data-delay="0">
+          <span class="reason-emoji">😂</span>
+          <p>Pelo seu jeito único de me fazer rir mesmo nos dias difíceis</p>
+        </div>
+        <div class="reason-card" data-delay="100">
+          <span class="reason-emoji">🤝</span>
+          <p>Por ser minha parceira em tudo, na alegria e na dificuldade</p>
+        </div>
+        <div class="reason-card" data-delay="200">
+          <span class="reason-emoji">🌟</span>
+          <p>Por ser a luz que ilumina minha vida todos os dias</p>
+        </div>
+        <div class="reason-card" data-delay="300">
+          <span class="reason-emoji">🏡</span>
+          <p>Por fazer de qualquer lugar o meu lar, desde que esteja com você</p>
+        </div>
+        <div class="reason-card" data-delay="400">
+          <span class="reason-emoji">💪</span>
+          <p>Por ser forte e me dar força quando mais preciso</p>
+        </div>
+        <div class="reason-card" data-delay="500">
+          <span class="reason-emoji">👀</span>
+          <p>Pelo seu olhar que me faz perder a fala até hoje</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTADOR SECTION ===== -->
+    <section class="section counter-section" id="contador">
+      <div class="counter-bg">
+        <img src="fotos/Casamento Beatriz e Ruan (127).jpg" alt="Casal" class="counter-bg-img" />
+        <div class="counter-overlay"></div>
+      </div>
+      <div class="counter-content">
+        <div class="section-deco">⏳</div>
+        <h2 class="section-title light">Nossa história em números</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="daysCounter">0</div>
+            <div class="stat-label">dias juntos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" style="font-size: clamp(1.2rem, 5vw, 2rem); line-height: 1.3;">muito<br/>mais ✨</div>
+            <div class="stat-label">fotos de memória</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">amor por você</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">pessoa que escolho todo dia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL SECTION ===== -->
+    <section class="section final-section" id="final">
+      <div class="final-hearts">💕</div>
+      <div class="final-content">
+        <h2 class="final-title">Feliz Dia dos Namorados</h2>
+        <p class="final-subtitle">meu amor 🌹</p>
+        <div class="final-photo-wrap">
+          <img src="fotos/WhatsApp Image 2026-06-11 at 22.30.19.jpeg" alt="Beatriz e Ruan" class="final-photo" />
+          <div class="final-photo-ring"></div>
+        </div>
+        <p class="final-text">
+          Beatriz, você é a melhor coisa que aconteceu na minha vida.<br/>
+          Te amarei para sempre. 💕
+        </p>
+        <div class="final-signature">— Ruan</div>
+        <div class="final-emoji-row">💍 🌹 💕 ✨ 💑</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ========== LIGHTBOX ========== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-prev" id="lbPrev" onclick="event.stopPropagation(); changeLightbox(-1)">‹</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg" onclick="event.stopPropagation()" />
+    <button class="lightbox-next" id="lbNext" onclick="event.stopPropagation(); changeLightbox(1)">›</button>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

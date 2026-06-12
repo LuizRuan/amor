@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code — Surpresa de Amor 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(135deg, #1a0a12 0%, #3d0f25 50%, #7b1d3a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .emoji { font-size: 3rem; margin-bottom: 1rem; animation: bounce 2s infinite; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 0 0 20px rgba(232,99,140,0.7);
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .url-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(232,99,140,0.4);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      font-size: 0.95rem;
+      font-family: 'Lato', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus { border-color: #e8638c; }
+    input[type="text"]::placeholder { color: rgba(255,255,255,0.3); }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #e8638c, #c0486c);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 6px 25px rgba(232,99,140,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(232,99,140,0.7); }
+
+    .qr-box {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: inline-block;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      margin: 1.5rem auto;
+      display: none;
+    }
+
+    .qr-box canvas, .qr-box img { display: block; }
+
+    .qr-label {
+      color: #3d1020;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .instructions {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      text-align: left;
+      display: none;
+    }
+
+    .instructions h3 {
+      color: #d4a84b;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .instructions ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      counter-reset: steps;
+    }
+
+    .instructions li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .instructions li::before {
+      counter-increment: steps;
+      content: counter(steps);
+      background: #e8638c;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .download-btn {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #d4a84b, #b8912e);
+      box-shadow: 0 6px 25px rgba(212,168,75,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji">💕</div>
+    <h1>Gerar QR Code</h1>
+    <p class="subtitle">Cole a URL do site após subir no Vercel</p>
+
+    <div class="url-input-wrap">
+      <label for="siteUrl">URL DO SITE (após subir no Vercel)</label>
+      <input
+        type="text"
+        id="siteUrl"
+        placeholder="https://seu-site.vercel.app"
+        value=""
+      />
+      <button onclick="generateQR()">💕 Gerar QR Code</button>
+    </div>
+
+    <div class="qr-box" id="qrBox">
+      <canvas id="qrCanvas"></canvas>
+      <div class="qr-label">💕 Beatriz & Ruan — Dia dos Namorados</div>
+    </div>
+
+    <button class="download-btn" id="downloadBtn" style="display:none" onclick="downloadQR()">
+      ⬇️ Baixar QR Code
+    </button>
+
+    <div class="instructions" id="instructions">
+      <h3>✅ Como usar o QR Code</h3>
+      <ol>
+        <li>Imprima o QR code acima (pode usar papel fotográfico para ficar mais bonito!)</li>
+        <li>Coloque dentro de um cartão, moldura ou envelope surpresa</li>
+        <li>Quando Beatriz apontar a câmera do celular para o QR code, vai abrir a surpresa automaticamente</li>
+        <li>Ela não vai esquecer nunca! 💕</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function generateQR() {
+      const url = document.getElementById('siteUrl').value.trim();
+      if (!url) {
+        alert('Cole a URL do site primeiro!');
+        return;
+      }
+
+      const canvas = document.getElementById('qrCanvas');
+
+      QRCode.toCanvas(canvas, url, {
+        width: 256,
+        margin: 2,
+        color: {
+          dark: '#3d1020',
+          light: '#ffffff'
+        }
+      }, function(err) {
+        if (err) {
+          alert('Erro ao gerar QR code: ' + err);
+          return;
+        }
+        document.getElementById('qrBox').style.display = 'inline-block';
+        document.getElementById('downloadBtn').style.display = 'block';
+        document.getElementById('instructions').style.display = 'block';
+      });
+    }
+
+    function downloadQR() {
+      const canvas = document.getElementById('qrCanvas');
+      const link = document.createElement('a');
+      link.download = 'qrcode-beatriz-ruan.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+
+    // Gerar ao pressionar Enter
+    document.getElementById('siteUrl').addEventListener('keydown', e => {
+      if (e.key === 'Enter') generateQR();
+    });
+  </script>
+</body>
+</html>
